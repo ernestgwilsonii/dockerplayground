@@ -1,0 +1,25 @@
+version: '3.2'
+
+services:
+
+  felb:
+    build: ./felb
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - app
+
+  app:
+    build: ./app
+
+  belb:
+    build: ./belb
+    ports:
+      - 3306:3306
+    depends_on:
+      - db
+
+  db:
+    build: ./db
+
