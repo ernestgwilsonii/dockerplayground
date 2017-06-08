@@ -1,0 +1,25 @@
+version: '3.2'
+
+services:
+
+  felb:
+    image: ernestgwilsonii/dockerplayground_felb
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - app
+
+  app:
+    image: ernestgwilsonii/dockerplayground_app
+
+  belb:
+    image: ernestgwilsonii/dockerplayground_belb
+    ports:
+      - 3306:3306
+    depends_on:
+      - db
+
+  db:
+    image: ernestgwilsonii/dockerplayground_db
+
